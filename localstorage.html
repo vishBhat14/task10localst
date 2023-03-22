@@ -54,6 +54,7 @@ button{
         <button>GET A CALL</button>
         </fieldset>
     </form>
+    <ul id='listOfitems'></ul>
     <script>
         function SaveToLocalStorage(event)
         {
@@ -63,10 +64,10 @@ button{
             const telps=event.target.telp.value;
             const times=event.target.time.value;
 
-           localStorage.setItem('name',names);
-           localStorage.setItem('email',emails);
-           localStorage.setItem('telp',telps);
-           localStorage.setItem('time',times);
+        //    localStorage.setItem('name',names);
+        //    localStorage.setItem('email',emails);
+        //    localStorage.setItem('telp',telps);
+        //    localStorage.setItem('time',times);
            
            const obj={
             names,
@@ -75,9 +76,16 @@ button{
 
            } 
            const strinobj=JSON.stringify(obj);
-           localStorage.setItem('userdetails',strinobj);
-          
-        }
+           localStorage.setItem(emails,strinobj);
+           ShowUserOnScreen(obj);}
+          function ShowUserOnScreen(obj)
+          {
+            const parentrele= document.getElementById('listOfitems');
+            const childele=document.createElement('li');
+            childele.textContent=childele.textContent+obj.names+" "+obj.emails+" "+obj.telps;
+              parentrele.appendChild(childele);
+          }
+        
     </script>
 </body>
 </html>
