@@ -67,6 +67,16 @@ button{
            localStorage.setItem('email',emails);
            localStorage.setItem('telp',telps);
            localStorage.setItem('time',times);
+           
+           const obj={
+            names,
+            emails,
+            telps
+
+           } 
+           const strinobj=JSON.stringify(obj);
+           localStorage.setItem('userdetails',strinobj);
+          
         }
     </script>
 </body>
