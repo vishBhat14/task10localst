@@ -83,7 +83,17 @@ button{
             const parentrele= document.getElementById('listOfitems');
             const childele=document.createElement('li');
             childele.textContent=childele.textContent+obj.names+" "+obj.emails+" "+obj.telps;
+
+            const deletbtn=document.createElement("input");
+            deletbtn.type="button";
+            deletbtn.value='delete';
+            deletbtn.onclick = () => {
+                localStorage.removeItem(obj.emails);
+                parentrele.removeChild(childele);
+            }
+            childele.appendChild(deletbtn);
               parentrele.appendChild(childele);
+             
           }
         
     </script>
